@@ -15,9 +15,9 @@ const authentication = async (req, res, next) => {
 
   try {
     const decode = Jwt.verify(token, process.env.Refresh_JWT_Secret);
-    console.log(decode, "<========="); 
-
+    
     const user = await UserModel.findOne({ email: decode.email }); 
+    console.log(user, "<========="); 
     if (!user) {
       return res.status(404).json({ message: "User not Found", status: "failed" });
     }

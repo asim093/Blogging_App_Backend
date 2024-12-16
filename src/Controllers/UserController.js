@@ -36,7 +36,7 @@ export const registerUser = async (req, res) => {
       return res.status(400).json({ message: "Please upload a profile image" });
     }
 
-    const ProfileImage = req.file.path; // Get the file path
+    const ProfileImage = req.file.path; 
 
     const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
 
